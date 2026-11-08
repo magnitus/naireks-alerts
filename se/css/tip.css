@@ -114,8 +114,11 @@
 }
 .na-msg.typing::after { content: ''; display: inline-block; width: 10px; height: 18px; margin-left: 3px; vertical-align: -2px; background: var(--c); animation: na-blink .4s steps(1) infinite; }
 .na-score { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; padding-right: 4px; animation: na-pop .4s steps(3) .85s both; }
-.na-score small { font-size: 15px; font-weight: 700; letter-spacing: 3px; color: #8ea2d6; text-shadow: 2px 2px 0 var(--ink); }
-.na-score b { font-size: 40px; font-weight: 700; line-height: 1; color: var(--cl); white-space: nowrap; text-shadow: 4px 4px 0 var(--ink), 0 0 12px var(--glow); }
+.na-score small { font-size: 16px; font-weight: 700; letter-spacing: 3px; color: #c9d4f5; text-shadow: 2px 2px 0 var(--ink); }
+/* the number: white with a solid dark outline and a hard drop in the type color, so it reads on any background */
+.na-score b { font-size: var(--na-score-size, 46px); font-weight: 700; line-height: 1; color: var(--na-score-color, #fff); white-space: nowrap; letter-spacing: 1px;
+  text-shadow: -2px -2px 0 var(--ink), 0 -2px 0 var(--ink), 2px -2px 0 var(--ink), -2px 0 0 var(--ink), 2px 0 0 var(--ink),
+               -2px 2px 0 var(--ink), 0 2px 0 var(--ink), 2px 2px 0 var(--ink), 4px 4px 0 var(--c), 6px 6px 0 var(--ink); }
 /* timer bar + "next" cursor */
 .na-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: rgba(5,8,20,.6); z-index: 1; }
 .na-bar i { display: block; height: 100%; background: var(--c); transform-origin: left; animation: na-drain var(--dur) steps(30) both; box-shadow: inset 0 2px 0 rgba(255,255,255,.4); }
