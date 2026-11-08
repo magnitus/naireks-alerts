@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Press+Start+2P&display=swap');
 /* Naireks 8-bit alerts: CSS for the StreamElements "Tip" alert.
    Paste this whole file into the CSS tab of the Tip alert AND of every variation listed below
    (same CSS everywhere; the HTML tab is what makes each variation different).
@@ -114,9 +114,11 @@
 }
 .na-msg.typing::after { content: ''; display: inline-block; width: 10px; height: 18px; margin-left: 3px; vertical-align: -2px; background: var(--c); animation: na-blink .4s steps(1) infinite; }
 .na-score { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; padding-right: 4px; animation: na-pop .4s steps(3) .85s both; }
+/* numbers inside the header and the line under the name: same clear font as the big number */
+.na-num { font-family: var(--na-score-font, 'Press Start 2P', monospace); font-weight: 400; font-size: .8em; letter-spacing: 0; }
 .na-score small { font-size: 16px; font-weight: 700; letter-spacing: 3px; color: #c9d4f5; text-shadow: 2px 2px 0 var(--ink); }
 /* the number: white with a solid dark outline and a hard drop in the type color, so it reads on any background */
-.na-score b { font-size: var(--na-score-size, 46px); font-weight: 700; line-height: 1; color: var(--na-score-color, #fff); white-space: nowrap; letter-spacing: 1px;
+.na-score b { font-family: var(--na-score-font, 'Press Start 2P', monospace); font-size: var(--na-score-size, 30px); font-weight: 400; line-height: 1.1; color: var(--na-score-color, #fff); white-space: nowrap;
   text-shadow: -2px -2px 0 var(--ink), 0 -2px 0 var(--ink), 2px -2px 0 var(--ink), -2px 0 0 var(--ink), 2px 0 0 var(--ink),
                -2px 2px 0 var(--ink), 0 2px 0 var(--ink), 2px 2px 0 var(--ink), 4px 4px 0 var(--c), 6px 6px 0 var(--ink); }
 /* timer bar + "next" cursor */

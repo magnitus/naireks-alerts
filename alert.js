@@ -177,6 +177,15 @@
     return /^[A-Za-z.]+$/.test(cur) ? val + ' ' + cur : cur + val;
   }
   function stripCheers(s) { return s.replace(/(^|\s)[A-Za-z]+\d+(?=\s|$)/g, ' ').replace(/\s+/g, ' ').trim(); }
+  /** Sets text, with every number (12, 1,000, 2.50) in its own .na-num span so it gets the clearer number font */
+  function numText(el, text) {
+    el.textContent = '';
+    String(text || '').split(/(\d(?:[\d,.]*\d)?)/).forEach(function (part, i) {
+      if (!part) return;
+      if (i % 2) { var s = make('span', 'na-num'); s.textContent = part; el.appendChild(s); }
+      else el.appendChild(document.createTextNode(part));
+    });
+  }
   function make(tag, cls, html) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -253,7 +262,7 @@
     // header tab
     var spark = spriteSVG(SPARKLE);
     var tab = make('div', 'na-tabwrap na-notch', '<div class="na-tab na-notch">' + LOGO + '<span></span><i class="na-spark">' + spark + '</i></div>');
-    tab.querySelector('span').textContent = tabText;
+    numText(tab.querySelector('span'), tabText);
 
     // box
     var box = make('div', 'na-box na-notch');
@@ -278,7 +287,7 @@
       ch.style.animationDelay = (0.45 + i * 0.035).toFixed(3) + 's';
       nameEl.appendChild(ch);
     }
-    var line = make('div', 'na-line'); line.textContent = d.line;
+    var line = make('div', 'na-line'); numText(line, d.line);
     text.appendChild(nameEl); text.appendChild(line);
     var msgEl = null;
     var tts = data.tts === true || data.tts === 'true' || data.tts === '1' || data.tts === 1;
