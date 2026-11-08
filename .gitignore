@@ -1,0 +1,8 @@
+# Only what the StreamElements alerts load from the CDN is published.
+/*
+!/.gitignore
+!/alert.js
+!/emotes/
+!/se/
+/se/*
+!/se/css/
